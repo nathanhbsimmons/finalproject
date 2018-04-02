@@ -51,7 +51,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        {this.renderSiteValue()}
+        <button onClick={()={this.handleClick()}}>{this.renderSiteValue()}</button>
         <p className="App-intro">
 
         </p>
