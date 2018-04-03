@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import SiteInfo from './SiteInfo.js'
 import './App.css';
 
 class App extends Component {
@@ -12,17 +12,31 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    fetch("https://waterservices.usgs.gov/nwis/iv/?&site=08154700&format=json")
+  // map = this.state.sites.timeSeries
+  // site = obj.name
+
+  componentDidMount(){
+
+    fetch(`https://waterservices.usgs.gov/nwis/iv/?stateCd=tx&format=json`)
       .then(res => res.json())
       .then(
         (res) => {
+          const isCorrectSite=(obj)=>{
+            console.log(obj)
+            // return obj.name == id
+            return obj.name === 'USGS:08154700:00065:00000'
+            // || obj.name ==  "USGS:08155240:00065:00000"
+          }
+
+          const sitesObj = res.value.timeSeries.filter(isCorrectSite)
 
           this.setState({
             isLoaded: true,
-            sites: res.value
+            sites: sitesObj
           });
-          console.log(this.state.sites.timeSeries[0].values[1].value[0].value)
+
+
+
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -36,10 +50,10 @@ class App extends Component {
       )
   }
 
-  renderSiteValue(){
-    if(this.state.isLoaded){
-      return <p>{this.state.sites.timeSeries[0].values[1].value[0].value}</p>
-    }
+  renderSiteInfo(){
+
+      return <SiteInfo site={this.state.sites}/>
+
 
   }
 
@@ -48,13 +62,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <button onClick={()={this.handleClick()}}>{this.renderSiteValue()}</button>
-        <p className="App-intro">
-
-        </p>
+        <button id={"USGS:08154700:00065:00000"} onClick={()=>{this.handleClick()}}>click me</button>
+        <div>{this.renderSiteInfo()}</div>
       </div>
     );
   }
