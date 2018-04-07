@@ -10,7 +10,7 @@ class SiteInfo extends Component {
       <div >
 
         {/* <button id={"USGS:08154700:00065:00000"} onClick={()=>{this.props.handleClick()}}>click me</button> */}
-        <h1>{this.props.site[0][0].name}</h1>
+        <h1>{this.props.site[0][0].sourceInfo.siteName}</h1>
         <p>jhjhh</p>
 
       </div>
