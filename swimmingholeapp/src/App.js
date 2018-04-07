@@ -8,7 +8,8 @@ class App extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      sites: []
+      sites: [],
+      displaySite: null
     };
   }
 
@@ -24,11 +25,12 @@ class App extends Component {
           const isCorrectSite=(obj)=>{
             console.log(obj)
             // return obj.name == id
-            return obj.name === 'USGS:08154700:00065:00000'
+            if (obj.name == 'USGS:08154700:00065:00000')
+            return  obj
             // || obj.name ==  "USGS:08155240:00065:00000"
           }
 
-          const sitesObj = res.value.timeSeries.filter(isCorrectSite)
+          const sitesObj = [res.value.timeSeries.filter(isCorrectSite)]
 
           this.setState({
             isLoaded: true,
@@ -51,10 +53,16 @@ class App extends Component {
   }
 
   renderSiteInfo(){
+    if(this.state.displaySite){
+      return <SiteInfo handleClick={()=>{this.handleClick()}} site={this.state.displaySite}/>
+    }
 
-      return <SiteInfo site={this.state.sites}/>
+  }
 
-
+  handleClick=(id)=>{
+    this.setState({
+      displaySite: this.state.sites
+    })
   }
 
   render() {
@@ -65,7 +73,7 @@ class App extends Component {
 
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <button id={"USGS:08154700:00065:00000"} onClick={()=>{this.handleClick()}}>click me</button>
+        <button id={"USGS:08154700:00065:00000"} onClick={(id)=>{this.handleClick(id)}}>click me</button>
         <div>{this.renderSiteInfo()}</div>
       </div>
     );
