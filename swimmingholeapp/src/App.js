@@ -23,26 +23,25 @@ class App extends Component {
       .then(
         (res) => {
           const isCorrectSite=(obj)=>{
-            console.log(obj)
-            // return obj.name == id
-            if (obj.name === ("USGS:08154700:00065:00000" || "USGS:08155240:00065:00000"
-            || "USGS:08155300:00065:00000" || "USGS:08155400:00065:00000"
-            || "USGS:08170990:63680:00000" || "USGS:08153500:00065:00000"
-            || "USGS:08171000:00065:00000" || "USGS:08158700:00065:00000"))
-            return  obj
-            // || obj.name ==  "USGS:08155240:00065:00000"
+
+            if (obj.name === "USGS:08154700:00065:00000" || obj.name === "USGS:08155240:00065:00000"
+            || obj.name === "USGS:08155300:00065:00000" || obj.name === "USGS:08155400:00065:00000"
+            || obj.name === "USGS:08170990:63680:00000" || obj.name === "USGS:08153500:00065:00000"
+            || obj.name === "USGS:08171000:00065:00000" || obj.name === "USGS:08158700:00065:00000")
+            {
+              return  obj
+            }
+
+
           }
 
-          const sitesObj = [res.value.timeSeries.filter(isCorrectSite)]
+          const sitesArr = res.value.timeSeries.filter(isCorrectSite)
 
           this.setState({
             isLoaded: true,
-            sites: sitesObj,
+            sites: sitesArr,
 
           });
-
-
-
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -60,14 +59,18 @@ class App extends Component {
     if(this.state.displaySite){
       return <SiteInfo handleClick={()=>{this.handleClick()}} site={this.state.displaySite}/>
     }
-
   }
 
   handleClick=(id)=>{
-
-    this.setState({
-      displaySite: this.state.sites
+    return this.state.sites.map((obj, key)=>{
+      console.log(id)
+      if(obj.name === id){
+        return this.setState({
+          displaySite: this.state.sites.obj
+        })
+      }
     })
+
   }
 
   render() {
