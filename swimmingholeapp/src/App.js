@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import SiteInfo from './SiteInfo.js'
+import DropDownMenu from './DropdownMenu.js'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
 
 class App extends Component {
@@ -9,7 +11,8 @@ class App extends Component {
       error: null,
       isLoaded: false,
       sites: [],
-      displaySite: null
+      displaySite: null,
+      value: 1
     };
   }
 
@@ -24,10 +27,14 @@ class App extends Component {
         (res) => {
           const isCorrectSite=(obj)=>{
 
-            if (obj.name === "USGS:08154700:00065:00000" || obj.name === "USGS:08155240:00065:00000"
-            || obj.name === "USGS:08155300:00065:00000" || obj.name === "USGS:08155400:00065:00000"
-            || obj.name === "USGS:08170990:63680:00000" || obj.name === "USGS:08153500:00065:00000"
-            || obj.name === "USGS:08171000:00065:00000" || obj.name === "USGS:08158700:00065:00000")
+            if (obj.name === "USGS:08154700:00065:00000" || obj.name === "USGS:08154700:00060:00000"
+            || obj.name === "USGS:08155240:00065:00000" || obj.name === "USGS:08155240:00060:00000"
+            || obj.name === "USGS:08155300:00065:00000" || obj.name === "USGS:08155300:00060:00000"
+            || obj.name === "USGS:08155400:00065:00000" || obj.name === "USGS:08155400:00060:00000"
+            || obj.name === "USGS:08170990:00065:00000" || obj.name === "USGS:08170990:00060:00000"
+            || obj.name === "USGS:08153500:00065:00000" || obj.name === "USGS:08153500:00060:00000"
+            || obj.name === "USGS:08171000:00065:00000" || obj.name === "USGS:08171000:00060:00000"
+            || obj.name === "USGS:08158700:00065:00000" || obj.name === "USGS:08158700:00060:00000")
             {
               return  obj
             }
@@ -39,6 +46,7 @@ class App extends Component {
 
           this.setState({
             isLoaded: true,
+            // sites: res,
             sites: sitesArr,
 
           });
@@ -55,16 +63,40 @@ class App extends Component {
       )
   }
 
+  handleSiteChange = (event, index, value, siteNum) => {
+    this.handleSiteSelect(this.props.siteNum)
+    console.log(siteNum, 'changing state')
+    this.setState({
+      value
+    })
+    this.state.sites.map((obj, key)=>{
+      console.log(siteNum)
+      if(obj.name === siteNum){
+        return this.setState({
+          displaySite: this.state.sites.obj
+        })
+      }
+    })
+  }
+
+  handleSiteSelect=(siteNum)=>{
+    console.log(siteNum)
+  }
+
   renderSiteInfo(){
-    if(this.state.displaySite){
-      return <SiteInfo handleClick={()=>{this.handleClick()}} site={this.state.displaySite}/>
+    if(this.state.isLoaded){
+      return <SiteInfo sites={this.state.sites} site={this.state.displaySite}/>
     }
   }
 
-  handleClick=(id)=>{
+  renderDropMenu(){
+    return <DropDownMenu handleSiteSelect={this.handleSiteSelect} handleSiteChange={(event, index, value, siteNum)=>{this.handleSiteChange(event, index, value, siteNum)}} value={this.state.value}/>
+  }
+
+  handleClick=(siteNum)=>{
     return this.state.sites.map((obj, key)=>{
-      console.log(id)
-      if(obj.name === id){
+      console.log(siteNum)
+      if(obj.name === siteNum){
         return this.setState({
           displaySite: this.state.sites.obj
         })
@@ -76,14 +108,17 @@ class App extends Component {
   render() {
 
     return (
+      <MuiThemeProvider>
       <div className="App">
         <header className="App-header">
 
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <button id={"USGS:08154700:00065:00000"} onClick={(id)=>{this.handleClick(id)}}>click me</button>
-        <div>{this.renderSiteInfo()}</div>
+        {/* <button id={"USGS:08154700:00065:00000"} onClick={(id)=>{this.handleClick(id)}}>click me</button> */}
+        {this.renderSiteInfo()}
+        {this.renderDropMenu()}
       </div>
+    </MuiThemeProvider>
     );
   }
 }

@@ -3,15 +3,20 @@ import './App.css';
 
 
 class SiteInfo extends Component {
-// this.state.sites.timeSeries[0].values[1].value[0].value
+
 
   render() {
     return (
       <div >
 
-        {/* <button id={"USGS:08154700:00065:00000"} onClick={()=>{this.props.handleClick()}}>click me</button> */}
-        <h1>{this.props.site[0].sourceInfo.siteName}</h1>
-        <p>jhjhh</p>
+
+        <h1>{this.props.sites[0].sourceInfo.siteName}</h1>
+
+        <h2>Gage Height</h2>
+        <h3>{this.props.sites[0+1].values[0].value[0].value}</h3>
+
+        <h2>Streamflow</h2>
+        <h3>{this.props.sites[0].values[0].value[0].value}</h3>
 
       </div>
     );
