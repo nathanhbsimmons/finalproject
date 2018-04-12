@@ -25,17 +25,18 @@ class DropdownMenu extends Component {
         </DropDownMenu>
         <br /> */}
         <DropDownMenu
-          
+          // site={"USGS:08153500:00060:00000"}
+          // site={this.props.site}
           value={this.props.value}
-          onChange={(event, index, value, siteNum)=>{this.props.handleSiteChange(event, index, value, siteNum)}}
+          onChange={(event, index, value, site)=>{this.props.handleSiteChange(event, index, value)}}
           style={styles.customWidth}
           autoWidth={false}
         >
-          <MenuItem value={1} primaryText="Custom width" />
-          <MenuItem value={2} siteNum={"USGS:08153500:00060:00000"} primaryText="Pedernales" />
-          <MenuItem value={3} primaryText="Weeknights" />
-          <MenuItem value={4} primaryText="Weekends" />
-          <MenuItem value={5} primaryText="Weekly" />
+          <MenuItem value={1} site={"USGS:08153500:00060:00000"} primaryText="Choose a spot" />
+          <MenuItem value={2} onChange={(event, index, value, site)=>{this.props.handleSiteChange(event, index, value)}} site={"USGS:08153500:00060:00000"} primaryText="Pedernales" />
+          <MenuItem value={3} site={"USGS:08153500:00060:00000"} primaryText="Weeknights" />
+          <MenuItem value={4} site={"USGS:08153500:00060:00000"} primaryText="Weekends" />
+          <MenuItem value={5} site={"USGS:08153500:00060:00000"} primaryText="Weekly" />
         </DropDownMenu>
       </div>
     );

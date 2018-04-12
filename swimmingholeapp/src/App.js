@@ -4,6 +4,16 @@ import DropDownMenu from './DropdownMenu.js'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
 
+//SUPER work in progress. I've spent a large amount of my time wading through
+//the info given to me by my API call and figuring out how to dig down to what I need to display.
+//Eventually, users will be able to choose a "swimming hole" in and around Austin
+//(either by picking out of a dropdown menu or clicking it on an illustrated map)
+//and the web app will display how high the water is in that spot (ft), the current
+//water flow (ft3 per second) and whether the current height/flow conditions are optimal for swimming
+//or not. Currently working on the best way to link the dropdown menu with my array of data objects
+//and then display that on the page. Next will be working on how to update the API call (probably with a time interval function)
+//so that the info stays current without having to reload the page.
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -16,8 +26,6 @@ class App extends Component {
     };
   }
 
-  // map = this.state.sites.timeSeries
-  // site = obj.name
 
   componentDidMount(){
 
@@ -46,14 +54,11 @@ class App extends Component {
 
           this.setState({
             isLoaded: true,
-            // sites: res,
             sites: sitesArr,
 
           });
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
+
         (error) => {
           this.setState({
             isLoaded: true,
@@ -63,47 +68,62 @@ class App extends Component {
       )
   }
 
-  handleSiteChange = (event, index, value, siteNum) => {
-    this.handleSiteSelect(this.props.siteNum)
-    console.log(siteNum, 'changing state')
+  handleSiteChange = (event, index, value, site) => {
+    this.handleSiteSelect(this.props.site)
+    console.log(index, 'changing state')
+    
     this.setState({
       value
     })
-    this.state.sites.map((obj, key)=>{
-      console.log(siteNum)
-      if(obj.name === siteNum){
-        return this.setState({
-          displaySite: this.state.sites.obj
-        })
-      }
-    })
+
+    if (index === 1){
+      const indexStreamFlow = "USGS:08153500:00060:00000"
+      const indexGaugeHeight = "USGS:08153500:00065:00000"
+      const displaySiteArr = []
+      this.state.sites.map((obj, key)=>{
+
+        if(obj.name == indexStreamFlow || obj.name == indexGaugeHeight){
+
+          console.log(displaySiteArr)
+
+          displaySiteArr.push(obj)
+
+        }
+      })
+      this.setState({
+        displaySite: displaySiteArr
+      })
+    }
   }
 
-  handleSiteSelect=(siteNum)=>{
-    console.log(siteNum)
+
+
+  handleSiteSelect=(site, value)=>{
+    console.log(site, 'nummmm')
+
   }
 
   renderSiteInfo(){
-    if(this.state.isLoaded){
-      return <SiteInfo sites={this.state.sites} site={this.state.displaySite}/>
+    if(this.state.displaySite && this.state.displaySite.length === 2){
+      return <SiteInfo displaySite={this.state.displaySite}/>
     }
   }
 
   renderDropMenu(){
-    return <DropDownMenu handleSiteSelect={this.handleSiteSelect} handleSiteChange={(event, index, value, siteNum)=>{this.handleSiteChange(event, index, value, siteNum)}} value={this.state.value}/>
+    return <DropDownMenu handleSiteSelect={this.handleSiteSelect} handleSiteChange={(event, index, value, site)=>{this.handleSiteChange(event, index, value)}} value={this.state.value}/>
   }
 
-  handleClick=(siteNum)=>{
-    return this.state.sites.map((obj, key)=>{
-      console.log(siteNum)
-      if(obj.name === siteNum){
-        return this.setState({
-          displaySite: this.state.sites.obj
-        })
-      }
-    })
-
-  }
+  // handleClick=(siteNum)=>{
+  //   return this.state.sites.map((obj, key)=>{
+  //     console.log(siteNum)
+  //     if(obj.name === siteNum){
+  //       return this.setState({
+  //         displaySite: this.state.sites.obj
+  //       })
+  //     }
+  //   })
+  //
+  // }
 
   render() {
 
@@ -112,7 +132,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
 
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Swimming Holes</h1>
         </header>
         {/* <button id={"USGS:08154700:00065:00000"} onClick={(id)=>{this.handleClick(id)}}>click me</button> */}
         {this.renderSiteInfo()}
