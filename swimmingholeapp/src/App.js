@@ -10,8 +10,7 @@ import './App.css';
 //(either by picking out of a dropdown menu or clicking it on an illustrated map)
 //and the web app will display how high the water is in that spot (ft), the current
 //water flow (ft3 per second) and whether the current height/flow conditions are optimal for swimming
-//or not. Currently working on the best way to link the dropdown menu with my array of data objects
-//and then display that on the page. Next will be working on how to update the API call (probably with a time interval function)
+//or not. Currently working on how to update the API call (probably with a time interval function)
 //so that the info stays current without having to reload the page.
 
 class App extends Component {
@@ -75,7 +74,11 @@ class App extends Component {
     this.setState({
       value
     })
+    this.handleSelectedSite(event, index, value, site)
 
+  }
+
+  handleSelectedSite=(event, index, value, site)=>{
     if (index === 1){
       const indexStreamFlow = "USGS:08154700:00060:00000"
       const indexGaugeHeight = "USGS:08154700:00065:00000"
@@ -123,8 +126,6 @@ class App extends Component {
 
     this.state.sites.map((obj, key)=>{
       if(obj.name === indexStreamFlow || obj.name === indexGaugeHeight){
-        console.log(displaySiteArr)
-
         displaySiteArr.push(obj)
       }
     })
@@ -169,7 +170,6 @@ class App extends Component {
 
           <h1 className="App-title">Swimming Holes</h1>
         </header>
-        {/* <button id={"USGS:08154700:00065:00000"} onClick={(id)=>{this.handleClick(id)}}>click me</button> */}
         {this.renderSiteInfo()}
         {this.renderDropMenu()}
       </div>
