@@ -71,7 +71,7 @@ class App extends Component {
   handleSiteChange = (event, index, value, site) => {
     this.handleSiteSelect(this.props.site)
     console.log(index, 'changing state')
-    
+
     this.setState({
       value
     })
@@ -80,23 +80,23 @@ class App extends Component {
       const indexStreamFlow = "USGS:08153500:00060:00000"
       const indexGaugeHeight = "USGS:08153500:00065:00000"
       const displaySiteArr = []
-      this.state.sites.map((obj, key)=>{
-
-        if(obj.name == indexStreamFlow || obj.name == indexGaugeHeight){
-
-          console.log(displaySiteArr)
-
-          displaySiteArr.push(obj)
-
-        }
-      })
-      this.setState({
-        displaySite: displaySiteArr
-      })
+      this.handleDisplaySiteChange(indexStreamFlow, indexGaugeHeight, displaySiteArr)
     }
   }
 
+  handleDisplaySiteChange=(indexStreamFlow, indexGaugeHeight, displaySiteArr)=>{
 
+    this.state.sites.map((obj, key)=>{
+      if(obj.name === indexStreamFlow || obj.name === indexGaugeHeight){
+        console.log(displaySiteArr)
+
+        displaySiteArr.push(obj)
+      }
+    })
+    this.setState({
+      displaySite: displaySiteArr
+    })
+  }
 
   handleSiteSelect=(site, value)=>{
     console.log(site, 'nummmm')
