@@ -1,21 +1,21 @@
 {
-  "name": "playingaround",
+  "name": "swimmingholeapp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-=======
+    "gh-pages": "^1.1.0",
+    "material-ui": "^0.20.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
->>>>>>> 25e1143de6d18c7395e73ad0f445239da469baa7
     "react-scripts": "1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "homepage": "https://nathanhbsimmons.github.io/finalproject/"
 }
