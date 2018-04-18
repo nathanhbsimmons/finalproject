@@ -25,9 +25,14 @@ class App extends Component {
     };
   }
 
+  
 
   componentDidMount(){
+    this.handleApiCall()
+    this.refreshApiCall()
+  }
 
+  handleApiCall=()=>{
     fetch(`https://waterservices.usgs.gov/nwis/iv/?stateCd=tx&format=json`)
       .then(res => res.json())
       .then(
@@ -45,8 +50,6 @@ class App extends Component {
             {
               return  obj
             }
-
-
           }
 
           const sitesArr = res.value.timeSeries.filter(isCorrectSite)
@@ -54,7 +57,6 @@ class App extends Component {
           this.setState({
             isLoaded: true,
             sites: sitesArr,
-
           });
         },
 
@@ -65,11 +67,21 @@ class App extends Component {
           });
         }
       )
+     
+     
+     console.log("my call")
   }
+
+  refreshApiCall() {
+    setInterval(this.handleApiCall, 30000);
+ }
+
+
+
 
   handleSiteChange = (event, index, value, site) => {
     this.handleSiteSelect(this.props.site)
-    console.log(index, 'changing state')
+    
 
     this.setState({
       value
@@ -136,7 +148,6 @@ class App extends Component {
 
   handleSiteSelect=(site, value)=>{
     console.log(site, 'nummmm')
-
   }
 
   renderSiteInfo(){
@@ -167,11 +178,12 @@ class App extends Component {
       <MuiThemeProvider>
       <div className="App">
         <header className="App-header">
-
           <h1 className="App-title">Swimming Holes</h1>
         </header>
+
         {this.renderSiteInfo()}
         {this.renderDropMenu()}
+
       </div>
     </MuiThemeProvider>
     );
