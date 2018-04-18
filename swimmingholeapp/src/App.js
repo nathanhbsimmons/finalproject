@@ -146,9 +146,9 @@ class App extends Component {
     })
   }
 
-  handleSiteSelect=(site, value)=>{
-    console.log(site, 'nummmm')
-  }
+  // handleSiteSelect=(site, value)=>{
+  //   // console.log(site, 'nummmm')
+  // }
 
   renderSiteInfo(){
     if(this.state.displaySite && this.state.displaySite.length === 2){
@@ -157,7 +157,7 @@ class App extends Component {
   }
 
   renderDropMenu(){
-    return <DropDownMenu handleSiteSelect={this.handleSiteSelect} handleSiteChange={(event, index, value, site)=>{this.handleSiteChange(event, index, value)}} value={this.state.value}/>
+    return <DropDownMenu handleSiteChange={(event, index, value, site)=>{this.handleSiteChange(event, index, value)}} value={this.state.value}/>
   }
 
   // handleClick=(siteNum)=>{
