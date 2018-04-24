@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SiteInfo from './SiteInfo.js'
-import DropDownMenu from './DropdownMenu.js'
+import SiteInfo from './SiteInfo.js';
+import DropDownMenu from './DropdownMenu.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
 
@@ -25,139 +25,176 @@ class App extends Component {
     };
   }
 
-  
-
-  componentDidMount(){
-    this.handleApiCall()
-    this.refreshApiCall()
+  componentDidMount() {
+    this.handleApiCall();
+    this.refreshApiCall();
   }
 
-  handleApiCall=()=>{
+  handleApiCall = () => {
+    console.log("API call y'all");
     fetch(`https://waterservices.usgs.gov/nwis/iv/?stateCd=tx&format=json`)
       .then(res => res.json())
       .then(
-        (res) => {
-          const isCorrectSite=(obj)=>{
-
-            if (obj.name === "USGS:08154700:00065:00000" || obj.name === "USGS:08154700:00060:00000"
-            || obj.name === "USGS:08155240:00065:00000" || obj.name === "USGS:08155240:00060:00000"
-            || obj.name === "USGS:08155300:00065:00000" || obj.name === "USGS:08155300:00060:00000"
-            || obj.name === "USGS:08155400:00065:00000" || obj.name === "USGS:08155400:00060:00000"
-            || obj.name === "USGS:08170990:00065:00000" || obj.name === "USGS:08170990:00060:00000"
-            || obj.name === "USGS:08153500:00065:00000" || obj.name === "USGS:08153500:00060:00000"
-            || obj.name === "USGS:08171000:00065:00000" || obj.name === "USGS:08171000:00060:00000"
-            || obj.name === "USGS:08158700:00065:00000" || obj.name === "USGS:08158700:00060:00000")
-            {
-              return  obj
+        res => {
+          const isCorrectSite = obj => {
+            if (
+              obj.name === 'USGS:08154700:00065:00000' ||
+              obj.name === 'USGS:08154700:00060:00000' ||
+              obj.name === 'USGS:08155240:00065:00000' ||
+              obj.name === 'USGS:08155240:00060:00000' ||
+              obj.name === 'USGS:08155300:00065:00000' ||
+              obj.name === 'USGS:08155300:00060:00000' ||
+              obj.name === 'USGS:08155400:00065:00000' ||
+              obj.name === 'USGS:08155400:00060:00000' ||
+              obj.name === 'USGS:08170990:00065:00000' ||
+              obj.name === 'USGS:08170990:00060:00000' ||
+              obj.name === 'USGS:08153500:00065:00000' ||
+              obj.name === 'USGS:08153500:00060:00000' ||
+              obj.name === 'USGS:08171000:00065:00000' ||
+              obj.name === 'USGS:08171000:00060:00000' ||
+              obj.name === 'USGS:08158700:00065:00000' ||
+              obj.name === 'USGS:08158700:00060:00000'
+            ) {
+              return obj;
             }
-          }
+          };
 
-          const sitesArr = res.value.timeSeries.filter(isCorrectSite)
+          const sitesArr = res.value.timeSeries.filter(isCorrectSite);
 
           this.setState({
             isLoaded: true,
-            sites: sitesArr,
+            sites: sitesArr
           });
         },
 
-        (error) => {
+        error => {
           this.setState({
             isLoaded: true,
             error
           });
         }
-      )
-     
-     
-     console.log("my call")
-  }
+      );
+
+    console.log('my call');
+  };
 
   refreshApiCall() {
     setInterval(this.handleApiCall, 30000);
- }
-
-
-
+  }
 
   handleSiteChange = (event, index, value, site) => {
-    this.handleSiteSelect(this.props.site)
-    
-
     this.setState({
       value
-    })
-    this.handleSelectedSite(event, index, value, site)
+    });
+    this.handleSelectedSite(event, index, value, site);
+  };
 
-  }
-
-  handleSelectedSite=(event, index, value, site)=>{
-    if (index === 1){
-      const indexStreamFlow = "USGS:08154700:00060:00000"
-      const indexGaugeHeight = "USGS:08154700:00065:00000"
-      const displaySiteArr = []
-      this.handleDisplaySiteChange(indexStreamFlow, indexGaugeHeight, displaySiteArr)
-    } else if (index === 2){
-      const indexStreamFlow = "USGS:08155300:00060:00000"
-      const indexGaugeHeight = "USGS:08155300:00065:00000"
-      const displaySiteArr = []
-      this.handleDisplaySiteChange(indexStreamFlow, indexGaugeHeight, displaySiteArr)
-    } else if (index === 3){
-      const indexStreamFlow = "USGS:08155240:00060:00000"
-      const indexGaugeHeight = "USGS:08155240:00065:00000"
-      const displaySiteArr = []
-      this.handleDisplaySiteChange(indexStreamFlow, indexGaugeHeight, displaySiteArr)
-    } else if (index === 4){
-      const indexStreamFlow = "USGS:08155400:00060:00000"
-      const indexGaugeHeight = "USGS:08155400:00065:00000"
-      const displaySiteArr = []
-      this.handleDisplaySiteChange(indexStreamFlow, indexGaugeHeight, displaySiteArr)
-    } else if (index === 5){
-      const indexStreamFlow = "USGS:08153500:00060:00000"
-      const indexGaugeHeight = "USGS:08153500:00065:00000"
-      const displaySiteArr = []
-      this.handleDisplaySiteChange(indexStreamFlow, indexGaugeHeight, displaySiteArr)
-    } else if (index === 6){
-      const indexStreamFlow = "USGS:08158700:00060:00000"
-      const indexGaugeHeight = "USGS:08158700:00065:00000"
-      const displaySiteArr = []
-      this.handleDisplaySiteChange(indexStreamFlow, indexGaugeHeight, displaySiteArr)
-    } else if (index === 7){
-      const indexStreamFlow = "USGS:08170990:00060:00000"
-      const indexGaugeHeight = "USGS:08170990:00065:00000"
-      const displaySiteArr = []
-      this.handleDisplaySiteChange(indexStreamFlow, indexGaugeHeight, displaySiteArr)
-    } else if (index === 8){
-      const indexStreamFlow = "USGS:08171000:00060:00000"
-      const indexGaugeHeight = "USGS:08171000:00065:00000"
-      const displaySiteArr = []
-      this.handleDisplaySiteChange(indexStreamFlow, indexGaugeHeight, displaySiteArr)
+  handleSelectedSite = (event, index, value, site) => {
+    if (index === 1) {
+      const indexStreamFlow = 'USGS:08154700:00060:00000';
+      const indexGaugeHeight = 'USGS:08154700:00065:00000';
+      const displaySiteArr = [];
+      this.handleDisplaySiteChange(
+        indexStreamFlow,
+        indexGaugeHeight,
+        displaySiteArr
+      );
+    } else if (index === 2) {
+      const indexStreamFlow = 'USGS:08155300:00060:00000';
+      const indexGaugeHeight = 'USGS:08155300:00065:00000';
+      const displaySiteArr = [];
+      this.handleDisplaySiteChange(
+        indexStreamFlow,
+        indexGaugeHeight,
+        displaySiteArr
+      );
+    } else if (index === 3) {
+      const indexStreamFlow = 'USGS:08155240:00060:00000';
+      const indexGaugeHeight = 'USGS:08155240:00065:00000';
+      const displaySiteArr = [];
+      this.handleDisplaySiteChange(
+        indexStreamFlow,
+        indexGaugeHeight,
+        displaySiteArr
+      );
+    } else if (index === 4) {
+      const indexStreamFlow = 'USGS:08155400:00060:00000';
+      const indexGaugeHeight = 'USGS:08155400:00065:00000';
+      const displaySiteArr = [];
+      this.handleDisplaySiteChange(
+        indexStreamFlow,
+        indexGaugeHeight,
+        displaySiteArr
+      );
+    } else if (index === 5) {
+      const indexStreamFlow = 'USGS:08153500:00060:00000';
+      const indexGaugeHeight = 'USGS:08153500:00065:00000';
+      const displaySiteArr = [];
+      this.handleDisplaySiteChange(
+        indexStreamFlow,
+        indexGaugeHeight,
+        displaySiteArr
+      );
+    } else if (index === 6) {
+      const indexStreamFlow = 'USGS:08158700:00060:00000';
+      const indexGaugeHeight = 'USGS:08158700:00065:00000';
+      const displaySiteArr = [];
+      this.handleDisplaySiteChange(
+        indexStreamFlow,
+        indexGaugeHeight,
+        displaySiteArr
+      );
+    } else if (index === 7) {
+      const indexStreamFlow = 'USGS:08170990:00060:00000';
+      const indexGaugeHeight = 'USGS:08170990:00065:00000';
+      const displaySiteArr = [];
+      this.handleDisplaySiteChange(
+        indexStreamFlow,
+        indexGaugeHeight,
+        displaySiteArr
+      );
+    } else if (index === 8) {
+      const indexStreamFlow = 'USGS:08171000:00060:00000';
+      const indexGaugeHeight = 'USGS:08171000:00065:00000';
+      const displaySiteArr = [];
+      this.handleDisplaySiteChange(
+        indexStreamFlow,
+        indexGaugeHeight,
+        displaySiteArr
+      );
     }
-  }
+  };
 
-  handleDisplaySiteChange=(indexStreamFlow, indexGaugeHeight, displaySiteArr)=>{
-
-    this.state.sites.map((obj, key)=>{
-      if(obj.name === indexStreamFlow || obj.name === indexGaugeHeight){
-        displaySiteArr.push(obj)
+  handleDisplaySiteChange = (
+    indexStreamFlow,
+    indexGaugeHeight,
+    displaySiteArr
+  ) => {
+    this.state.sites.map((obj, key) => {
+      if (obj.name === indexStreamFlow || obj.name === indexGaugeHeight) {
+        displaySiteArr.push(obj);
       }
-    })
+    });
     this.setState({
       displaySite: displaySiteArr
-    })
-  }
+    });
+  };
 
-  // handleSiteSelect=(site, value)=>{
-  //   // console.log(site, 'nummmm')
-  // }
-
-  renderSiteInfo(){
-    if(this.state.displaySite && this.state.displaySite.length === 2){
-      return <SiteInfo displaySite={this.state.displaySite}/>
+  renderSiteInfo() {
+    if (this.state.displaySite && this.state.displaySite.length === 2) {
+      return <SiteInfo displaySite={this.state.displaySite} />;
     }
   }
 
-  renderDropMenu(){
-    return <DropDownMenu handleSiteChange={(event, index, value, site)=>{this.handleSiteChange(event, index, value)}} value={this.state.value}/>
+  renderDropMenu() {
+    return (
+      <DropDownMenu
+        handleSiteChange={(event, index, value, site) => {
+          this.handleSiteChange(event, index, value);
+        }}
+        value={this.state.value}
+      />
+    );
   }
 
   // handleClick=(siteNum)=>{
@@ -173,19 +210,15 @@ class App extends Component {
   // }
 
   render() {
-
     return (
       <MuiThemeProvider>
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Swimming Holes</h1>
-        </header>
-
-        {this.renderSiteInfo()}
-        {this.renderDropMenu()}
-
-      </div>
-    </MuiThemeProvider>
+        <div className="App">
+          <header className="App-header">
+            <h1 className="App-title"> Swimming Holes </h1>
+          </header>
+          {this.renderSiteInfo()} {this.renderDropMenu()}
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
