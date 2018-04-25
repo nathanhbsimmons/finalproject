@@ -74,8 +74,6 @@ class App extends Component {
           });
         }
       );
-
-    console.log('my call');
   };
 
   refreshApiCall() {
@@ -165,11 +163,7 @@ class App extends Component {
     }
   };
 
-  handleDisplaySiteChange = (
-    indexStreamFlow,
-    indexGaugeHeight,
-    displaySiteArr
-  ) => {
+  handleDisplaySiteChange = (indexStreamFlow, indexGaugeHeight, displaySiteArr) => {
     this.state.sites.map((obj, key) => {
       if (obj.name === indexStreamFlow || obj.name === indexGaugeHeight) {
         displaySiteArr.push(obj);
@@ -206,7 +200,6 @@ class App extends Component {
   //       })
   //     }
   //   })
-  //
   // }
 
   render() {
