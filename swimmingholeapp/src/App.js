@@ -3,6 +3,7 @@ import SiteInfo from './SiteInfo.js';
 import DropDownMenu from './DropdownMenu.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
+import ClickMap from './Map.js';
 
 //SUPER work in progress. I've spent a large amount of my time wading through
 //the info given to me by my API call and figuring out how to dig down to what I need to display.
@@ -58,20 +59,10 @@ class App extends Component {
               return obj;
             }
           };
-
           const sitesArr = res.value.timeSeries.filter(isCorrectSite);
-
-          this.setState({
-            isLoaded: true,
-            sites: sitesArr
-          });
+          this.setState({isLoaded: true, sites: sitesArr});
         },
-
-        error => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
+        error => {this.setState({isLoaded: true, error});
         }
       );
   };
@@ -88,7 +79,8 @@ class App extends Component {
   };
 
   handleSelectedSite = (event, index, value, site) => {
-    if (index === 1) {
+    console.log(event.target.title)
+    if (index === 1 || event.target.title == "Bull Creek") {
       const indexStreamFlow = 'USGS:08154700:00060:00000';
       const indexGaugeHeight = 'USGS:08154700:00065:00000';
       const displaySiteArr = [];
@@ -97,7 +89,7 @@ class App extends Component {
         indexGaugeHeight,
         displaySiteArr
       );
-    } else if (index === 2) {
+    } else if (index === 2 || event.target.title == "Gus Fruh") {
       const indexStreamFlow = 'USGS:08155300:00060:00000';
       const indexGaugeHeight = 'USGS:08155300:00065:00000';
       const displaySiteArr = [];
@@ -106,7 +98,7 @@ class App extends Component {
         indexGaugeHeight,
         displaySiteArr
       );
-    } else if (index === 3) {
+    } else if (index === 3 || event.target.title == "Lost Creek") {
       const indexStreamFlow = 'USGS:08155240:00060:00000';
       const indexGaugeHeight = 'USGS:08155240:00065:00000';
       const displaySiteArr = [];
@@ -115,7 +107,7 @@ class App extends Component {
         indexGaugeHeight,
         displaySiteArr
       );
-    } else if (index === 4) {
+    } else if (index === 4 || event.target.title == "Barton Springs") {
       const indexStreamFlow = 'USGS:08155400:00060:00000';
       const indexGaugeHeight = 'USGS:08155400:00065:00000';
       const displaySiteArr = [];
@@ -124,7 +116,7 @@ class App extends Component {
         indexGaugeHeight,
         displaySiteArr
       );
-    } else if (index === 5) {
+    } else if (index === 5 || event.target.title == "Pedernales Falls") {
       const indexStreamFlow = 'USGS:08153500:00060:00000';
       const indexGaugeHeight = 'USGS:08153500:00065:00000';
       const displaySiteArr = [];
@@ -133,7 +125,7 @@ class App extends Component {
         indexGaugeHeight,
         displaySiteArr
       );
-    } else if (index === 6) {
+    } else if (index === 6 || event.target.title == "Camp Ben McCulloch") {
       const indexStreamFlow = 'USGS:08158700:00060:00000';
       const indexGaugeHeight = 'USGS:08158700:00065:00000';
       const displaySiteArr = [];
@@ -142,8 +134,7 @@ class App extends Component {
         indexGaugeHeight,
         displaySiteArr
       );
-    } else if (index === 7) {
-      const indexStreamFlow = 'USGS:08170990:00060:00000';
+    } else if (index === 7 || event.target.title == "Jacob's Well") { const indexStreamFlow = 'USGS:08170990:00060:00000';
       const indexGaugeHeight = 'USGS:08170990:00065:00000';
       const displaySiteArr = [];
       this.handleDisplaySiteChange(
@@ -151,7 +142,7 @@ class App extends Component {
         indexGaugeHeight,
         displaySiteArr
       );
-    } else if (index === 8) {
+    } else if (index === 8 || event.target.title == "Blue Hole") {
       const indexStreamFlow = 'USGS:08171000:00060:00000';
       const indexGaugeHeight = 'USGS:08171000:00065:00000';
       const displaySiteArr = [];
@@ -191,16 +182,6 @@ class App extends Component {
     );
   }
 
-  // handleClick=(siteNum)=>{
-  //   return this.state.sites.map((obj, key)=>{
-  //     console.log(siteNum)
-  //     if(obj.name === siteNum){
-  //       return this.setState({
-  //         displaySite: this.state.sites.obj
-  //       })
-  //     }
-  //   })
-  // }
 
   render() {
     return (
@@ -209,7 +190,11 @@ class App extends Component {
           <header className="App-header">
             <h1 className="App-title"> Swimming Holes </h1>
           </header>
+          
           {this.renderSiteInfo()} {this.renderDropMenu()}
+          <ClickMap handleSelectedSite={(event) => {
+            this.handleSelectedSite(event);
+          }}/>
         </div>
       </MuiThemeProvider>
     );
