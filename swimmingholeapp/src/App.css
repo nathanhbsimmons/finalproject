@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background-color: ghostwhite;
+  height: 100vh;
   
 }
 
@@ -20,7 +21,8 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 2em;
+  font-weight: 200;
 }
 
 .App-intro {
@@ -32,11 +34,24 @@
 }
 
 .mapImage {
-  max-width: 95%
+  max-width: 100%
 }
 
 .waterIcon {
-  max-height: 80%;
+  max-height: 95%;
+  padding-left: .5%;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.dropdownMenu {
+  width: 300;
+  background-color: ghostwhite;
+  color: #9ACAEB !important;
+}
+
+.menuItem {
+  color: #9ACAEB !important;
 }
 
 @keyframes App-logo-spin {
