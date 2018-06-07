@@ -10,13 +10,13 @@ class SiteInfo extends Component {
       <div >
 
 
-        <h1>{this.props.displaySite[0].sourceInfo.siteName}</h1>
+        <h3>{this.props.displaySite[0].sourceInfo.siteName}</h3>
 
-        <h2>Gage Height</h2>
-        <h3>{this.props.displaySite[1].values[0].value[0].value}</h3>
+        <p>Gage Height: {this.props.displaySite[1].values[0].value[0].value}</p>
+        {/*<h4>{this.props.displaySite[1].values[0].value[0].value}</h4>*/}
 
-        <h2>Streamflow</h2>
-        <h3>{this.props.displaySite[0].values[0].value[0].value}</h3>
+        <p>Streamflow: {this.props.displaySite[0].values[0].value[0].value}</p>
+        {/*<h4>{this.props.displaySite[0].values[0].value[0].value}</h4>*/}
 
       </div>
     );

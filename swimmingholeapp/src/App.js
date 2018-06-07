@@ -4,6 +4,7 @@ import DropDownMenu from './DropdownMenu.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
 import ClickMap from './Map.js';
+import waterIcon from './waterIcon.png'
 
 //SUPER work in progress. I've spent a large amount of my time wading through
 //the info given to me by my API call and figuring out how to dig down to what I need to display.
@@ -188,13 +189,18 @@ class App extends Component {
       <MuiThemeProvider>
         <div className="App">
           <header className="App-header">
-            <h1 className="App-title"> Swimming Holes </h1>
+          <img className="waterIcon" src={waterIcon}/>
+            <h1 className="App-title"> Austin Currents </h1>
           </header>
           
-          {this.renderSiteInfo()} {this.renderDropMenu()}
+          {this.renderDropMenu()}
+          <div className="mapContainer">
           <ClickMap handleSelectedSite={(event) => {
             this.handleSelectedSite(event);
           }}/>
+          </div>
+          {this.renderSiteInfo()} 
+          
         </div>
       </MuiThemeProvider>
     );

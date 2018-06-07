@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #E3CDAF;
+  background-color: ghostwhite;
   
 }
 
@@ -10,10 +10,13 @@
 }
 
 .App-header {
-  background-color: #222;
+  background-color: ghostwhite;
   height: 50px;
   padding: 20px;
-  color: white;
+  color: #9ACAEB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-title {
@@ -24,8 +27,16 @@
   font-size: large;
 }
 
+.mapContainer {
+  background-color: #E3CDAF
+}
+
 .mapImage {
   max-width: 95%
+}
+
+.waterIcon {
+  max-height: 80%;
 }
 
 @keyframes App-logo-spin {
