@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../App.css';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 
@@ -11,7 +11,7 @@ class DropdownMenu extends Component {
 
   render() {
     return (
-      <div >
+      <div className="dropdownMenuDiv" >
         <DropDownMenu
           className="dropdownMenu"
           value={this.props.value}

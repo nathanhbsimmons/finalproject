@@ -72,11 +72,11 @@ class App extends Component {
     setInterval(this.handleApiCall, 30000);
   }
 
-  handleSiteChange = (event, index, value, site) => {
+  handleSiteChange = (event, index, value) => {
     this.setState({
       value
     });
-    this.handleSelectedSite(event, index, value, site);
+    this.handleSelectedSite(event, index, value);
   };
 
   handleSelectedSite = (event, index, value, site) => {
