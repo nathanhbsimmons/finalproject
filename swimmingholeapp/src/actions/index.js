@@ -1,5 +1,6 @@
-export function handleDropdownSelectedChange(){
+export function setValue(value){
     return {
-      type:"HANDLE_DROPDOWN_SELECTED_CHANGE"
+      type:"SET_VALUE",
+      value: value
     }
-  }
+  } 

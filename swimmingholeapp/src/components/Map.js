@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import map from './mapPicture.png'
-import './App.css';
+import map from '../img/mapPicture.png'
+import '../App.css';
 
 
 

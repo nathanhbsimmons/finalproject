@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import SiteInfo from './SiteInfo.js';
-import DropDownMenu from './DropdownMenu.js';
+import SiteInfo from './components/SiteInfo.js';
+import DropDownMenu from './components/DropdownMenu.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
-import ClickMap from './Map.js';
-import waterIcon from './waterIconLetter.png'
+import ClickMap from './components/Map.js';
+import waterIcon from './img/waterIconLetter.png'
 
 //SUPER work in progress. I've spent a large amount of my time wading through
 //the info given to me by my API call and figuring out how to dig down to what I need to display.

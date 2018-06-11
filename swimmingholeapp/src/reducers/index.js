@@ -1,11 +1,11 @@
-function handleSiteChange(state = 0, action){
-    if(action.type === "HANDLE_DROPDOWN_SELECTED_CHANGE"){
+function value(state = 0, action){
+    if(action.type === "SET_VALUE"){
       return action.value;
     }
     return state;
-  }
+}
 
   const rootReducer = combineReducers({
-    handleSiteChange
+    value
   });
   export default rootReducer;
