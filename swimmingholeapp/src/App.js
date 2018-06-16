@@ -79,7 +79,7 @@ class App extends Component {
     this.handleSelectedSite(event, index, value);
   };
 
-  handleSelectedSite = (event, index, value, site) => {
+  handleSelectedSite = (event, index) => {
     console.log(event.target.title)
     if (index === 1 || event.target.title == "Bull Creek") {
       const indexStreamFlow = 'USGS:08154700:00060:00000';
