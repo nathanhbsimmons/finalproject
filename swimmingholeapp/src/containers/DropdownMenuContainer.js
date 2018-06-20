@@ -1,4 +1,4 @@
-import { setValue, setDisplaySiteFromDropdown } from '../actions';
+import { setValue, setDisplaySite } from '../actions';
 import { connect } from 'react-redux';
 import DropdownMenu from '../components/DropdownMenu'
 
@@ -9,8 +9,8 @@ function mapDispatchToProps(dispatch){
         var action = setValue(value);
         dispatch(action);
       },
-      setDisplaySite:function(index){
-        var action = setDisplaySiteFromDropdown(index);
+      setDisplaySite:function(displaySite){
+        var action = setDisplaySite(displaySite);
         dispatch(action);
       },
       

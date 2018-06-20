@@ -16,7 +16,7 @@ function sites(state = [], action){
 
 function displaySite(state = [], action){
 
-  if(action.type === "SET_DISPLAY_SITE_FROM_DROPDOWN" || action.type === "SET_DISPLAY_SITE_FROM_MAP"){
+  if(action.type === "SET_DISPLAY_SITE"){
     
     return action.value;
   }

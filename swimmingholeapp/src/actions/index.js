@@ -5,19 +5,14 @@ export function setValue(value){
     }
   }
   
-  export function setDisplaySiteFromDropdown(displaySite){
+  export function setDisplaySite(displaySite){
     return {
-      type:"SET_DISPLAY_SITE_FROM_DROPDOWN",
+      type:"SET_DISPLAY_SITE",
       value: displaySite
     }
   } 
 
-  export function setDisplaySiteFromMap(displaySite){
-    return {
-      type:"SET_DISPLAY_SITE_FROM_MAP",
-      value: displaySite
-    }
-  } 
+  
 
   export function fetchSites(){
     return function (dispatch) {
