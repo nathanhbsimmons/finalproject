@@ -1,4 +1,4 @@
-import { setDisplaySite } from '../actions';
+import { setDisplaySite, setValue } from '../actions';
 import { connect } from 'react-redux';
 import ClickMap from '../components/Map'
 
@@ -11,7 +11,10 @@ function mapDispatchToProps(dispatch){
         var action = setDisplaySite(displaySite);
         dispatch(action);
       },
-      
+      setValue:function(value){
+        var action = setValue(value);
+        dispatch(action);
+      },
     }
 }
 
