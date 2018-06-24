@@ -9,10 +9,7 @@ import DropdownMenuContainer from './containers/DropdownMenuContainer.js';
 
 
   class App extends Component {
-    constructor(props) {
-      super(props);
-      
-    }
+    
 
   componentDidMount() {
     this.props.fetchSites();

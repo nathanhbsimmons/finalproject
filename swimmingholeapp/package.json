@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "gh-pages": "^1.1.0",
+    "image-map": "^1.0.8",
+    "image-map-resizer": "^1.0.7",
     "material-ui": "^0.20.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
