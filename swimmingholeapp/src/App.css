@@ -30,7 +30,12 @@
 }
 
 .mapContainer {
-  background-color: #E3CDAF
+  background-color: #E3CDAF;
+  position: relative;
+}
+
+.mapDiv {
+  z-index: 1;
 }
 
 .mapImage {
@@ -45,20 +50,25 @@
 }
 
 .dropdownMenu {
-  width: 300;
-  background-color: ghostwhite;
-  color: #9ACAEB !important;
+  /* width: 300; */
+  border-radius: 3px;
+  
+  background-color: rgba(227, 205, 175, 0.4);
+  color: orangered !important;
 }
 
 .dropdownMenuDiv {
-  background-color: ghostwhite;
+  position: absolute;
+  top: 10;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  z-index: 2;
+  color: orangered !important;
 }
 
 .menuItem {
-  color: #9ACAEB !important;
+  color: orangered !important;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}

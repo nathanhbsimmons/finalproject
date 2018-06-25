@@ -36,10 +36,10 @@ import DropdownMenuContainer from './containers/DropdownMenuContainer.js';
             <h1 className="App-title">urrents</h1>
           </header>
           
-          <DropdownMenuContainer/>
+          
         
           <div className="mapContainer">
-           
+          <DropdownMenuContainer/>  
           <ClickMapContainer/>
           
           </div>

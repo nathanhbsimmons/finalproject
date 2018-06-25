@@ -14,7 +14,7 @@ class ClickMap extends Component {
   
         render(props){
             return (
-                <div>
+                <div className="mapDiv">
                     <img className="mapImage" src={map} alt="" useMap="#image-map" id="map-image" />
                     <map name="image-map" >
                         <area onClick={(event)=>{this.props.setValue(Number(event.target.id)); this.props.setDisplaySite(filterSelectedSite(event, null, this.props.sites))}} alt="" id="6" title="Pedernales Falls"  href="#" shape="circle"   coords="30, 68, 14" />

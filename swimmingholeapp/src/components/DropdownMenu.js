@@ -14,7 +14,7 @@ function DropdownMenu(props) {
         className="dropdownMenu"
         value={props.value}
         onChange={(event, index, value)=>{props.setValue(value); props.setDisplaySite(filterSelectedSite(event, index, props.sites))}}
-        autoWidth={false}
+        autoWidth={true}
       >
         <MenuItem className="menuItem" value={1} primaryText="Choose a spot" />
         <MenuItem className="menuItem" value={2} onChange={(event, index, value)=>{props.setValue(value); props.setDisplaySite(filterSelectedSite(event, index, props.sites))}} primaryText="Bull Creek @ Loop 360" />
