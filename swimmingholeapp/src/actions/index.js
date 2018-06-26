@@ -60,7 +60,7 @@ export function setValue(value){
   export function fetchWeather() {
     return function (dispatch) {
         
-        fetch("https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20%3D%202357536&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys")
+        fetch("http://api.openweathermap.org/data/2.5/weather?q=austin&APPID=2c90dffe53b62e9c55900f42159a33fd")
         .then( (response) => {
           return response.json();
         }).then((data) => {
