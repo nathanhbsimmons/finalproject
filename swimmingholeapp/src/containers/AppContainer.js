@@ -1,13 +1,17 @@
 import App from "../App";
 import { connect } from "react-redux";
-import { fetchSites } from "../actions";
+import { fetchSites, fetchWeather } from "../actions";
 
 function mapDispatchToProps(dispatch) {
   return {
       fetchSites:function(){
       let action = fetchSites();
       dispatch(action);
-      }
+      },
+      fetchWeather:function(){
+        let action = fetchWeather();
+        dispatch(action);
+        }
   };
 }
 

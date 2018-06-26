@@ -1,3 +1,12 @@
+element {
+  color: orangered !important;
+}
+
+div[role="menu"] > div > span {
+  /* background: red !important; */
+  color: red !important;
+}
+
 .App {
   text-align: center;
   background-color: ghostwhite;

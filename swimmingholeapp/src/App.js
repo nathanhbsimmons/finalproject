@@ -13,6 +13,7 @@ import DropdownMenuContainer from './containers/DropdownMenuContainer.js';
 
   componentDidMount() {
     this.props.fetchSites();
+    this.props.fetchWeather();
     this.refreshApiCall();
   }
 

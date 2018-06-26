@@ -24,8 +24,15 @@ function displaySite(state = [], action){
   return state;
 }
 
+function weather(state = {}, action){
+  if(action.type === "WEATHER_FETCHED"){
+    return action.value;
+  }
+  return state;
+}
+
 
   const rootReducer = combineReducers({
-    value, displaySite, sites
+    value, displaySite, sites, weather
   });
   export default rootReducer;

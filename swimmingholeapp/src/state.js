@@ -3,5 +3,6 @@ export default {
     // isLoaded: false,
     sites: [],
     displaySite: null,
-    value: 1
+    value: 1,
+    weather: null
 }
