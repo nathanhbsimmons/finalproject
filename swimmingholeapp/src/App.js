@@ -5,6 +5,7 @@ import './App.css';
 import ClickMapContainer from './containers/MapContainer.js';
 import waterIcon from './img/waterIconLetter.png'
 import DropdownMenuContainer from './containers/DropdownMenuContainer.js';
+import WeatherContainer from './containers/WeatherContainer.js';
 
 
 
@@ -30,21 +31,24 @@ import DropdownMenuContainer from './containers/DropdownMenuContainer.js';
     return (
       <MuiThemeProvider>
         <div className="App">
+        <WeatherContainer/>
           <header className="App-header">
           
             <h1 className="App-title">Austin </h1>
             <img className="waterIcon" src={waterIcon}/>
             <h1 className="App-title">urrents</h1>
+           
           </header>
+          <p className="instructions">Can I swim today?</p>
           
           
-        
           <div className="mapContainer">
           <DropdownMenuContainer/>  
           <ClickMapContainer/>
           
           </div>
-          
+          <p className="instructions">Select a swimming hole on the map or dropdown menu to begin your search.</p>
+        
           <SiteInfoContainer />
        
          </div>

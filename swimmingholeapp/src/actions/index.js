@@ -60,7 +60,7 @@ export function setValue(value){
   export function fetchWeather() {
     return function (dispatch) {
         
-        fetch("http://api.openweathermap.org/data/2.5/weather?q=austin&APPID=2c90dffe53b62e9c55900f42159a33fd")
+        fetch("http://api.openweathermap.org/data/2.5/weather?q=austin&APPID=2c90dffe53b62e9c55900f42159a33fd&units=imperial")
         .then( (response) => {
           return response.json();
         }).then((data) => {

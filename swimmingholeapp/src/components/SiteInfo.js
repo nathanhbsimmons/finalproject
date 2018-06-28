@@ -28,12 +28,12 @@ const displaySite = props.displaySite
     if (displaySite) {
       return (
         <div >
-        <h3>{props.displaySite[0].sourceInfo.siteName}</h3>
-  
-        <p>Gage Height: {props.displaySite[1].values[0].value[0].value}</p>
+        {/*<h3>{props.displaySite[0].sourceInfo.siteName}</h3>*/}
+        
+        <p>Water Height: {props.displaySite[1].values[0].value[0].value} FT</p>
         
     
-        <p>Streamflow: {props.displaySite[0].values[0].value[0].value}</p>
+        <p>Water Flow: {props.displaySite[0].values[0].value[0].value} FT³/S</p>
         </div>
       );
     } else {
