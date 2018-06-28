@@ -79,7 +79,7 @@ div[role="menu"] > div > span {
 
 
 .dropdownMenu {
-  /* width: 300; */
+ 
   border-radius: 3px;
   font-weight: 700;
   background-color: rgba(227, 205, 175, 0.4);
@@ -88,11 +88,10 @@ div[role="menu"] > div > span {
 
 .dropdownMenuDiv {
   position: absolute;
-  top: 10;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 100%;
+  left: 50%;
+
+  transform: translate(-50%);
+ 
   z-index: 2;
   color: orangered !important;
 }

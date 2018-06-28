@@ -47,7 +47,7 @@ import WeatherContainer from './containers/WeatherContainer.js';
           <ClickMapContainer/>
           
           </div>
-          <p className="instructions">Select a swimming hole on the map or dropdown menu to begin your search.</p>
+          
         
           <SiteInfoContainer />
        

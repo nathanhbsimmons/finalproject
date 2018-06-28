@@ -37,7 +37,7 @@ const displaySite = props.displaySite
         </div>
       );
     } else {
-      return (<div></div>)
+      return (<div><p className="instructions">Select a swimming hole on the map or dropdown menu to begin your search.</p></div>)
     }
     
   
