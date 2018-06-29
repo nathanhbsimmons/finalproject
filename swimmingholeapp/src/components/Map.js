@@ -6,6 +6,7 @@ import ImageMap from 'image-map'
 
 
 
+
 class ClickMap extends Component {
     
         componentDidMount(){
@@ -14,8 +15,9 @@ class ClickMap extends Component {
   
         render(props){
             return (
-                <div className="mapDiv">
+                <span className="mapDiv">
                     <img className="mapImage" src={map} alt="" useMap="#image-map" id="map-image" />
+                   
                     <map name="image-map" >
                         <area onClick={(event)=>{this.props.setValue(Number(event.target.id)); this.props.setDisplaySite(filterSelectedSite(event, null, this.props.sites))}} alt="" id="6" title="Pedernales Falls"  href="#" shape="circle"   coords="30, 68, 14" />
                         <area onClick={(event)=>{this.props.setValue(Number(event.target.id)); this.props.setDisplaySite(filterSelectedSite(event, null, this.props.sites))}} alt="" id="2" title="Bull Creek" href="#" shape="circle" coords="383, 31, 14" />
@@ -26,7 +28,9 @@ class ClickMap extends Component {
                         <area onClick={(event)=>{this.props.setValue(Number(event.target.id)); this.props.setDisplaySite(filterSelectedSite(event, null, this.props.sites))}} alt="" id="8" title="Jacob's Well" href="#" shape="circle" coords="124, 325, 14"  />
                         <area onClick={(event)=>{this.props.setValue(Number(event.target.id)); this.props.setDisplaySite(filterSelectedSite(event, null, this.props.sites))}} alt="" id="9" title="Blue Hole" href="#" shape="circle" coords="150, 351, 15" />
                     </map>
-                </div>
+                    
+                </span>
+
             );
         }
         

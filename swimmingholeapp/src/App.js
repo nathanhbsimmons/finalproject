@@ -31,7 +31,7 @@ import WeatherContainer from './containers/WeatherContainer.js';
     return (
       <MuiThemeProvider>
         <div className="App">
-        <WeatherContainer/>
+        
           <header className="App-header">
           
             <h1 className="App-title">Austin </h1>
@@ -45,7 +45,7 @@ import WeatherContainer from './containers/WeatherContainer.js';
           <div className="mapContainer">
           <DropdownMenuContainer/>  
           <ClickMapContainer/>
-          
+          <WeatherContainer/>
           </div>
           
         
