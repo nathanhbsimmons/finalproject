@@ -100,7 +100,7 @@ div[role="menu"] > div > span {
   border-radius: 3px;
   font-weight: 700;
   
-  background-color: rgba(227, 205, 175, 0.4);
+  background-color: rgba(248,248,255,0.5);
   color:rgba(40, 45, 46, 0.877);
 }
 
@@ -118,3 +118,18 @@ div[role="menu"] > div > span {
   color: orangered !important;
 }
 
+.meterIconImage{
+  height: 80px;
+  margin-bottom: -20px;
+}
+
+.displaySite {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto; 
+  font-size: 20px;
+}
+
+/* .bottomText {
+  margin-top: 0px
+} */

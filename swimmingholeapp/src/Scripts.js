@@ -1,3 +1,5 @@
+import React from 'react';
+
 export function filterSelectedSite(event, index, sites) {
     console.log(event.target.id)
     if (index === 1 || event.target.id == 2) {
@@ -91,3 +93,9 @@ export function filterSelectedSite(event, index, sites) {
   
       }
 }
+
+// export function waterMeterIcon(waterHeight){
+//     if(waterHeight < 2){
+//       return (<img className="meterIconImage" src={caution} alt="" />)
+//     }
+// }
