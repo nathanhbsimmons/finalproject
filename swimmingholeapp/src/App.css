@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel|Indie+Flower|Josefin+Sans|Poiret+One');
+
+
 element {
   color: orangered !important;
 }
@@ -15,7 +18,8 @@ div[role="menu"] > div > span {
   text-align: center;
   background-color: ghostwhite;
   height: 100vh;
-  color: rgb(75, 155, 207);
+  color: rgba(47,79,79,0.94);
+  font-family: 'Josefin Sans', sans-serif;
   
 }
 
@@ -25,7 +29,7 @@ div[role="menu"] > div > span {
   padding: 20px;
   margin-top: 5px;
   margin-bottom: 5px;
-  color: #9ACAEB;
+  color: rgba(47,79,79,0.94);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,15 +48,21 @@ div[role="menu"] > div > span {
 }
 
 .instructions {
-  font-style: italic
+  font-family: 'Poiret One', cursive;
+  /* font-style: italic; */
+  font-size: 20px;
 }
 
 .weather {
+  background-color: rgba(248,248,255,0.5);
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 7px;
+  right: 7px;
+  width: 55px;
+  padding-left: 3px;
   z-index: 2;
   font-size: 20px;
+  border-radius: 3px;
 }
 
 .weatherTemp {
@@ -79,7 +89,7 @@ div[role="menu"] > div > span {
   height: auto;
  
   border-radius: 3px;
-  border: .5px solid rgb(75, 155, 207);
+  border: .5px solid rgba(47,79,79,0.94);
   border-width: 3px;
 }
 
