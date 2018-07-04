@@ -10,14 +10,15 @@ div[role="menu"] > div > span {
   color: red !important;
 }
 
-/* body {
-  position: relative;
-} */
+body {
+  background-color: ghostwhite;
+}
 
 .App {
   text-align: center;
   background-color: ghostwhite;
   height: 100vh;
+  
   color: rgba(70,130,180,0.93);
   font-family: 'Josefin Sans', sans-serif;
   
@@ -138,7 +139,16 @@ div[role="menu"] > div > span {
   align-items: center;
 }
 
+/* iPhone Portrait */
+@media screen and (max-device-width: 480px) and (orientation:portrait) {
+  .main {
+    flex-direction: column
+  }
+} 
 
-/* .bottomText {
-  margin-top: 0px
-} */
+/* iPhone Landscape */
+@media screen and (max-device-width: 480px) and (orientation:landscape) {
+  .main {
+    flex-direction: row
+  }
+}
