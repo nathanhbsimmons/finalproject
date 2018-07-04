@@ -6,6 +6,7 @@ import ClickMapContainer from './containers/MapContainer.js';
 import waterIcon from './img/waterIconLetter.png'
 import DropdownMenuContainer from './containers/DropdownMenuContainer.js';
 import WeatherContainer from './containers/WeatherContainer.js';
+import SiteMeterContainer from './containers/SiteMeterContainer.js';
 
 
 
@@ -41,15 +42,25 @@ import WeatherContainer from './containers/WeatherContainer.js';
           </header>
           <p className="instructions">Can I swim today?</p>
           
+          <div className="main">
           
+          <SiteInfoContainer />
+
           <div className="mapContainer">
           <DropdownMenuContainer/>  
           <ClickMapContainer/>
           <WeatherContainer/>
           </div>
           
+          <SiteMeterContainer />
+          
+          </div>
+          
+          
+          
+          <p className="instructions">Select a swimming hole on the map or dropdown menu to begin your search.</p>
         
-          <SiteInfoContainer />
+          
        
          </div>
       </MuiThemeProvider>

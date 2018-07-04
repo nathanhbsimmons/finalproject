@@ -18,7 +18,7 @@ div[role="menu"] > div > span {
   text-align: center;
   background-color: ghostwhite;
   height: 100vh;
-  color: rgba(47,79,79,0.94);
+  color: rgba(70,130,180,0.93);
   font-family: 'Josefin Sans', sans-serif;
   
 }
@@ -29,7 +29,7 @@ div[role="menu"] > div > span {
   padding: 20px;
   margin-top: 5px;
   margin-bottom: 5px;
-  color: rgba(47,79,79,0.94);
+  color: rgba(70,130,180,0.93);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,7 +67,7 @@ div[role="menu"] > div > span {
 
 .weatherTemp {
   margin: 0 0 0 0;
-  color: rgba(40, 45, 46, 0.877);
+  color: rgba(70,130,180,0.93);
 }
 
 
@@ -76,6 +76,7 @@ div[role="menu"] > div > span {
   position: relative;
   width: 441px;
   margin: 0 auto;
+ 
 }
 
 .mapDiv {
@@ -89,7 +90,7 @@ div[role="menu"] > div > span {
   height: auto;
  
   border-radius: 3px;
-  border: .5px solid rgba(47,79,79,0.94);
+  border: .5px solid rgba(70,130,180,0.93);
   border-width: 3px;
 }
 
@@ -128,7 +129,15 @@ div[role="menu"] > div > span {
   justify-content: center;
   margin: 0 auto; 
   font-size: 20px;
+  flex: 1;
 }
+
+.main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 
 /* .bottomText {
   margin-top: 0px
