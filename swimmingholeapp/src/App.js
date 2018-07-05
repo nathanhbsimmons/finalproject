@@ -36,7 +36,7 @@ import SiteMeterContainer from './containers/SiteMeterContainer.js';
           <header className="App-header">
           
             <h1 className="App-title">Austin </h1>
-            <img className="waterIcon" src={waterIcon}/>
+            <img className="waterIcon" src={waterIcon} alt=""/>
             <h1 className="App-title">urrents</h1>
            
           </header>

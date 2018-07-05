@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../App.css';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import {filterSelectedSite} from '../Scripts'
-import { orange200 } from 'material-ui/styles/colors';
+// import { orange200 } from 'material-ui/styles/colors';
 
 
 
