@@ -21,7 +21,7 @@ function waterMeterIcon(waterHeight, waterFlow){
   } else if (waterHeight <= 5 ){
     return (<div><p>Bingo!</p><img className="meterIconImage" src={full} alt="" /><p className="bottomText">Enjoy the swim!!</p></div>)
   } else if (waterHeight > 5 ){
-    return (<div><p>Caution:</p><img className="meterIconImage" src={caution} alt="" /><p className="bottomText">WaterLevel High!!</p></div>)
+    return (<div><p>Swim with Caution:</p><img className="meterIconImage" src={caution} alt="" /><p className="bottomText">Water Level High!!</p></div>)
   }
 }
 
