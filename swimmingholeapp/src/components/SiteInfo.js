@@ -16,9 +16,10 @@ const displaySite = props.displaySite
     if (displaySite) {
       return (
         <div className="displaySite">
-        {/*<h3>{props.displaySite[0].sourceInfo.siteName}</h3>*/}
+        
         
         <div>
+        <h3 className="siteName">{props.displaySite[0].sourceInfo.siteName}</h3>
         <p>Water Height: {props.displaySite[1].values[0].value[0].value} FT</p>
         
     

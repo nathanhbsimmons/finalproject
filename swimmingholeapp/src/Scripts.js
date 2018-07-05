@@ -9,6 +9,7 @@ export function filterSelectedSite(event, index, sites) {
         const displaySitesArr = []
         sites.map((obj, key) => {
             if (obj.name === indexStreamFlow || obj.name === indexGaugeHeight) {
+              obj.sourceInfo.siteName = "Bull Creek @ Loop 360"
               displaySitesArr.push(obj)
             }
           });
@@ -20,6 +21,7 @@ export function filterSelectedSite(event, index, sites) {
         const displaySitesArr = []
         sites.map((obj, key) => {
             if (obj.name === indexStreamFlow || obj.name === indexGaugeHeight) {
+              obj.sourceInfo.siteName = "Gus Fruh (Greenbelt)"
               displaySitesArr.push(obj)
             }
           });
@@ -31,6 +33,7 @@ export function filterSelectedSite(event, index, sites) {
         const displaySitesArr = []
         sites.map((obj, key) => {
             if (obj.name === indexStreamFlow || obj.name === indexGaugeHeight) {
+              obj.sourceInfo.siteName = "Lost Creek (Greenbelt)"
               displaySitesArr.push(obj)
             }
           });
@@ -42,6 +45,7 @@ export function filterSelectedSite(event, index, sites) {
         const displaySitesArr = []
         sites.map((obj, key) => {
             if (obj.name === indexStreamFlow || obj.name === indexGaugeHeight) {
+              obj.sourceInfo.siteName = "Barton Springs (Upper)"
               displaySitesArr.push(obj)
             }
           });
@@ -53,6 +57,7 @@ export function filterSelectedSite(event, index, sites) {
         const displaySitesArr = []
         sites.map((obj, key) => {
             if (obj.name === indexStreamFlow || obj.name === indexGaugeHeight) {
+              obj.sourceInfo.siteName = "Pedernales Falls"
               displaySitesArr.push(obj)
             }
           });
@@ -64,6 +69,7 @@ export function filterSelectedSite(event, index, sites) {
         const displaySitesArr = []
         sites.map((obj, key) => {
             if (obj.name === indexStreamFlow || obj.name === indexGaugeHeight) {
+              obj.sourceInfo.siteName = "Camp Ben McColough"
               displaySitesArr.push(obj)
             }
           });
@@ -75,6 +81,7 @@ export function filterSelectedSite(event, index, sites) {
         const displaySitesArr = []
         sites.map((obj, key) => {
             if (obj.name === indexStreamFlow || obj.name === indexGaugeHeight) {
+              obj.sourceInfo.siteName = "Jacob's Well"
               displaySitesArr.push(obj)
             }
           });
@@ -86,6 +93,7 @@ export function filterSelectedSite(event, index, sites) {
         const displaySitesArr = []
         sites.map((obj, key) => {
             if (obj.name === indexStreamFlow || obj.name === indexGaugeHeight) {
+              obj.sourceInfo.siteName = "Blue Hole"
               displaySitesArr.push(obj)
             }
           });
@@ -94,3 +102,6 @@ export function filterSelectedSite(event, index, sites) {
       }
 }
 
+// export function setSiteDisplayName(){
+//   if(props.displaySite[0].name == )
+// }
