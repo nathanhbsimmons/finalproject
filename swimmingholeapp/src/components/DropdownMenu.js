@@ -11,7 +11,7 @@ function DropdownMenu(props) {
   const styles = {
     color: "rgba(70,130,180,0.93)",
     fontFamily: "'Josefin Sans', sans-serif",
-    fontWeight: "500",
+    fontWeight: "200",
     contrastText: "rgba(70,130,180,0.93)",
   }
     
