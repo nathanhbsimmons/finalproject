@@ -94,8 +94,3 @@ export function filterSelectedSite(event, index, sites) {
       }
 }
 
-// export function waterMeterIcon(waterHeight){
-//     if(waterHeight < 2){
-//       return (<img className="meterIconImage" src={caution} alt="" />)
-//     }
-// }
