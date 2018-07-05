@@ -162,6 +162,7 @@ body {
 /* iPhone Landscape */
 @media screen and (max-device-width: 480px) and (orientation:landscape) {
   .main {
-    flex-direction: row
+    flex-direction: row;
+    max-height: 100vh;
   }
 }
