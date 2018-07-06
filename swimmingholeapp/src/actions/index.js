@@ -50,7 +50,6 @@ export function setValue(value){
   }
 
   export function sitesFetched(sites){
-    console.log(sites)
     return {
       type:"SITES_FETCHED",
       value: sites

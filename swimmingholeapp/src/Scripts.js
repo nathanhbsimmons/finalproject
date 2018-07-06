@@ -1,9 +1,8 @@
 import React from 'react';
 
 export function filterSelectedSite(event, index, sites) {
-    console.log(event.target.id)
+   
     if (index === 1 || event.target.id == 2) {
-        console.log("I'm in 1")
         const indexStreamFlow = 'USGS:08154700:00060:00000';
         const indexGaugeHeight = 'USGS:08154700:00065:00000';
         const displaySitesArr = []
@@ -102,6 +101,3 @@ export function filterSelectedSite(event, index, sites) {
       }
 }
 
-// export function setSiteDisplayName(){
-//   if(props.displaySite[0].name == )
-// }
