@@ -51,7 +51,7 @@ body {
 .contactLinksContainer {
   position: absolute;
   bottom: 7px;
-  left: 7px;
+  left: 6.5px;
   z-index: 2;
   width: 70px;
   height: 23px;
@@ -79,7 +79,7 @@ a:link {
   background-color: rgba(248,248,255,0.5);
   position: absolute;
   bottom: 7px;
-  right: 7px;
+  right: 6.5px;
   width: 55px;
   padding-left: 3px;
   z-index: 2;
