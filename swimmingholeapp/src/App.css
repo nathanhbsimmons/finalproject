@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Cinzel|Indie+Flower|Josefin+Sans|Poiret+One');
-
+@import url('https://use.fontawesome.com/releases/v5.0.10/css/all.css');
 
 
 body {
@@ -43,10 +43,37 @@ body {
 
 .instructions {
   font-family: 'Poiret One', cursive;
-  /* font-style: italic; */
   font-size: 20px;
   font-weight: bold;
+  position: relative;
 }
+
+.contactLinksContainer {
+  position: absolute;
+  bottom: 7px;
+  left: 7px;
+  z-index: 2;
+  width: 70px;
+  height: 23px;
+  background-color: rgba(248,248,255,0.6);
+  text-decoration: none;
+  border-radius: 3px;
+  
+}
+
+
+
+a {
+  color: rgba(70,130,180,0.9);
+  margin: 3px;
+  padding-top: 2px;
+
+}
+
+a:link {
+  text-decoration: none;
+}
+
 
 .weather {
   background-color: rgba(248,248,255,0.5);

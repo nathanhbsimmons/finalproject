@@ -13,6 +13,7 @@ import DropdownMenuContainer from './containers/DropdownMenuContainer.js';
 import WeatherContainer from './containers/WeatherContainer.js';
 import SiteMeterContainer from './containers/SiteMeterContainer.js';
 import InstructionsContainer from './containers/InstructionsContainer.js';
+import Contact from './components/Contact.js';
 
 
 
@@ -41,12 +42,14 @@ import InstructionsContainer from './containers/InstructionsContainer.js';
             <h1 className="App-title">urrents</h1> 
           </header>
 
+        
           <p className="instructions">Can I swim today?</p>
           
           <div className="main">
             <SiteInfoContainer />
 
             <div className="mapContainer">
+                <Contact />
                <DropdownMenuContainer secondary={true}/>  
                <ClickMapContainer/>
                <WeatherContainer/>
