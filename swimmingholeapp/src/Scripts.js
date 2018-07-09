@@ -68,7 +68,7 @@ export function filterSelectedSite(event, index, sites) {
         const displaySitesArr = []
         sites.map((obj, key) => {
             if (obj.name === indexStreamFlow || obj.name === indexGaugeHeight) {
-              obj.sourceInfo.siteName = "Camp Ben McColough"
+              obj.sourceInfo.siteName = "Camp Ben McCulloch"
               displaySitesArr.push(obj)
             }
           });
