@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
-import caution from "../img/meterIconCaution.png";
+import cautionHeight from "../img/meterIconCaution.png";
+import cautionFlow from "../img/meterIconCautionFlow.png";
 import low from "../img/meterIconLow.png";
 import empty from "../img/meterIconEmpty.png";
 import full from "../img/meterIconFull.png";
@@ -16,12 +17,14 @@ function SiteMeter (props) {
 function waterMeterIcon(waterHeight, waterFlow){
   if(waterHeight <= 1){
     return (<div><p>Caution:</p><img className="meterIconImage" src={empty} alt="" /><p className="bottomText">No Water!!</p></div>)
-  } else if (waterHeight <= 2){
+  } else if (waterHeight <= 1.5){
     return (<div><p>Caution:</p><img className="meterIconImage" src={low} alt="" /><p className="bottomText">Water Level Low!!</p></div>)
-  } else if (waterHeight <= 5 ){
+  } else if (waterHeight <= 5 && waterFlow < 100){
     return (<div><p>Bingo!</p><img className="meterIconImage" src={full} alt="" /><p className="bottomText">Enjoy the swim!!</p></div>)
-  } else if (waterHeight > 5 ){
-    return (<div><p>Swim with Caution:</p><img className="meterIconImage" src={caution} alt="" /><p className="bottomText">Water Level High!!</p></div>)
+  } else if (waterHeight <= 5 && waterFlow > 100){
+    return (<div><p>Caution: Water flow is fast!!</p><img className="meterIconImage" src={cautionFlow} alt="" /><p className="bottomText">but Water level is good!</p></div>)
+  } else if (waterHeight > 5){
+    return (<div><p>Swim with Caution:</p><img className="meterIconImage" src={cautionHeight} alt="" /><p className="bottomText">Water Level High!!</p></div>)
   }
 }
 
