@@ -9,10 +9,6 @@ function SiteInfo (props) {
   
 const displaySite = props.displaySite
   
-
-
-
-    
     if (displaySite) {
       return (
         <div className="displaySite">
@@ -22,7 +18,6 @@ const displaySite = props.displaySite
         <h3 className="siteName">{props.displaySite[0].sourceInfo.siteName}</h3>
         <p>Water Height: {props.displaySite[1].values[0].value[0].value} FT</p>
         
-    
         <p>Water Flow: {props.displaySite[0].values[0].value[0].value} FT³/S</p>
         </div>
         
@@ -31,11 +26,6 @@ const displaySite = props.displaySite
     } else {
       return (<div></div>)
     }
-    
-  
- 
-   
 }
-
 
 export default SiteInfo

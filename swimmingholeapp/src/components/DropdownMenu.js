@@ -4,24 +4,17 @@ import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import {filterSelectedSite} from '../Scripts'
 
-
-
-
 class DropdownMenu extends Component {
-  
-
   
 handleChange=(event, index, value, props)=>{
        
     if(this.props.sites.length > 0 && value == 1){
-     return (this.props.setValue(value))
-     
+      return (this.props.setValue(value))
     } else if (this.props.sites.length > 0) {
       return (this.props.setValue(value), this.props.setDisplaySite(filterSelectedSite(event, index, this.props.sites)))
     } else {
         return
-    }
-         
+    }    
  }    
    render(props) {
     const styles = {
@@ -52,12 +45,7 @@ handleChange=(event, index, value, props)=>{
         </DropDownMenu>
       </div>
     );
-   } 
-  
-
- 
-   
+   }  
   }
-
 
 export default DropdownMenu
